@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <id>Hello</id>
+    <version>$(version)</version>
+    <authors>Wesley_Camargo</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <projectUrl></projectUrl>
+    <description>Package description</description>
+    <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
+    <dependencies>
+    </dependencies>
+  </metadata>
+</package>
