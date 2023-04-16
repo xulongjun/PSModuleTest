@@ -6,7 +6,7 @@ pool:
 
 variables:
   - name: modulePath
-    value: Hello.psm1
+    value: Hello
 
 steps:
 - task: PowerShell@2
