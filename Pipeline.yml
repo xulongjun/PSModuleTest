@@ -25,9 +25,9 @@ steps:
       $moduleName = (Get-Item .).Name
       $moduleManifest = Get-Item -Path "*.psd1"
       $moduleVersion = (Import-PowerShellDataFile -Path $moduleManifest.FullName).ModuleVersion
-
-      & "..\tools\nuget.exe" spec -Force
-      (Get-Content "$moduleName.nuspec") -replace '{version}', $moduleVersion | Set-Content "$moduleName.nuspec"
+      
+      (Get-Content "Package.nuspec") -replace '{id}', $moduleName -replace '{version}', $moduleVersion | Set-Content "$moduleName.nuspec"
+      Remove-Item "Package.nuspec"
 - task: NuGetAuthenticate@0
   displayName: 'NuGet Authenticate'
 
