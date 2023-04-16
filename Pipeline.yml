@@ -31,6 +31,14 @@ steps:
       Remove-Item "Package.nuspec"
 
 - task: PowerShell@2
+  displayName: 'List files in module directory'
+  inputs:
+    targetType: 'inline'
+    script: |
+      Set-Location $(modulePath)
+      Get-ChildItem -Recurse
+      
+- task: PowerShell@2
   displayName: 'Create module nupkg'
   inputs:
     targetType: 'inline'
@@ -47,7 +55,7 @@ steps:
     script: |
       Set-Location $(modulePath)
       Get-ChildItem -Recurse
-      
+
 - task: NuGetAuthenticate@0
   displayName: 'NuGet Authenticate'
 
