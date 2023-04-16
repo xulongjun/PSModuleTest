@@ -29,7 +29,7 @@ steps:
       & "..\tools\nuget.exe" spec -Force
       (Get-Content "Package.nuspec") -replace '{id}', $moduleName -replace '{version}', $moduleVersion | Set-Content "$moduleName.nuspec"
       Remove-Item "Package.nuspec"
-      
+
 - task: PowerShell@2
   displayName: 'Create module nupkg'
   inputs:
@@ -39,7 +39,15 @@ steps:
       $moduleName = (Get-Item .).Name
 
       & "..\tools\nuget.exe" pack -Properties Configuration=Release -Verbosity Detailed
-  
+
+- task: PowerShell@2
+  displayName: 'List files in module directory'
+  inputs:
+    targetType: 'inline'
+    script: |
+      Set-Location $(modulePath)
+      Get-ChildItem -Recurse
+      
 - task: NuGetAuthenticate@0
   displayName: 'NuGet Authenticate'
 
