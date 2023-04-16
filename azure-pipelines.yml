@@ -1,5 +1,5 @@
 trigger:
-- main
+- none
 
 pool:
   vmImage: ubuntu-latest
@@ -48,5 +48,5 @@ steps:
   inputs:
     command: push
     packagesToPush: $(Build.SourcesDirectory)/Output/Nuget/*.nupkg
-    publishVstsFeed: LongjunTest/xulongjunfr
+    publishVstsFeed: LongjunTest/psModule
   
