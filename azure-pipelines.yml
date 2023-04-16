@@ -48,5 +48,5 @@ steps:
   inputs:
     command: push
     packagesToPush: $(Build.SourcesDirectory)/Output/Nuget/*.nupkg
-    publishVstsFeed: LongjunTest/psModule
+    publishVstsFeed: psModule
   
