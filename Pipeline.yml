@@ -36,6 +36,6 @@ steps:
   displayName: 'Push module to Azure DevOps Artifacts'
   inputs:
     command: 'push'
-    packagesToPush: '$(Build.Repository.LocalPath)/*.nupkg'
+    packagesToPush: '$(Build.Repository.LocalPath)\$(modulePath)\*.nupkg'
     nuGetFeedType: 'internal'
     publishVstsFeed: 'LongjunTest/ps-private-module'
