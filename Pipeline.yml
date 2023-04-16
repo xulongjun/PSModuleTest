@@ -9,15 +9,13 @@ variables:
     value: Hello
 
 steps:
-
 - task: PowerShell@2
   displayName: 'Download nuget.exe'
   inputs:
     targetType: 'inline'
     script: |
       New-Item -ItemType Directory -Path tools -Force
-      Invoke-WebRequest -Uri "https://dist.nuget.org/win-x86-commandline/latest/nuget.exe" -OutFile tools/nuget.exe
-
+      Invoke-WebRequest -Uri "https://dist.nuget.org/win-x86-commandline/latest/nuget.exe" -OutFile tools\nuget.exe
 - task: PowerShell@2
   displayName: 'Create module nuspec'
   inputs:
@@ -28,19 +26,8 @@ steps:
       $moduleManifest = Get-Item -Path "*.psd1"
       $moduleVersion = (Import-PowerShellDataFile -Path $moduleManifest.FullName).ModuleVersion
 
-      tools/nuget.exe spec -Force
+      & "..\tools\nuget.exe" spec -Force
       (Get-Content "$moduleName.nuspec") -replace '{version}', $moduleVersion | Set-Content "$moduleName.nuspec"
-
-- task: PowerShell@2
-  displayName: 'Create module nupkg'
-  inputs:
-    targetType: 'inline'
-    script: |
-      Set-Location $(modulePath)
-      $moduleName = (Get-Item .).Name
-
-      tools/nuget.exe pack -Properties Configuration=Release -Verbosity Detailed
-  
 - task: NuGetAuthenticate@0
   displayName: 'NuGet Authenticate'
 
