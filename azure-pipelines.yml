@@ -56,5 +56,5 @@ steps:
   inputs:
     command: push
     packagesToPush: $(Build.SourcesDirectory)/Output/Nuget/*.nupkg
-    publishVstsFeed: test service
+    publishVstsFeed: 'testServiceCon'
   
