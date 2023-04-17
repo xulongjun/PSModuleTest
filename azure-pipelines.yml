@@ -48,5 +48,13 @@ steps:
   inputs:
     command: push
     packagesToPush: $(Build.SourcesDirectory)/Output/Nuget/*.nupkg
-    publishVstsFeed: psModule
+    publishVstsFeed: LongjunTest/PsModuleTest
+
+- task: NuGetCommand@2
+  displayName: Publish to Nuget
+  name: publishnuget
+  inputs:
+    command: push
+    packagesToPush: $(Build.SourcesDirectory)/Output/Nuget/*.nupkg
+    publishVstsFeed: LongjunTest2/PsModuleTest2
   
