@@ -44,7 +44,7 @@ steps:
 
 - task: NuGetCommand@2
   displayName: Publish to Nuget PsModuleTest
-  name: publishnuget
+  name: publishnuget1
   inputs:
     command: push
     packagesToPush: $(Build.SourcesDirectory)/Output/Nuget/*.nupkg
@@ -52,7 +52,7 @@ steps:
 
 - task: NuGetCommand@2
   displayName: Publish to Nuget PsModuleTest2
-  name: publishnuget
+  name: publishnuget2
   inputs:
     command: push
     packagesToPush: $(Build.SourcesDirectory)/Output/Nuget/*.nupkg
