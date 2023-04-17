@@ -56,5 +56,5 @@ steps:
   inputs:
     command: push
     packagesToPush: $(Build.SourcesDirectory)/Output/Nuget/*.nupkg
-    publishVstsFeed: LongjunTest2/PsModuleTest2
+    publishVstsFeed: test service
   
