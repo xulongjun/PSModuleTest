@@ -43,7 +43,7 @@ steps:
     PathtoPublish: $(Build.SourcesDirectory)/Output
 
 - task: NuGetCommand@2
-  displayName: Publish to Nuget
+  displayName: Publish to Nuget PsModuleTest
   name: publishnuget
   inputs:
     command: push
@@ -51,7 +51,7 @@ steps:
     publishVstsFeed: LongjunTest/PsModuleTest
 
 - task: NuGetCommand@2
-  displayName: Publish to Nuget
+  displayName: Publish to Nuget PsModuleTest2
   name: publishnuget
   inputs:
     command: push
