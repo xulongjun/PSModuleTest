@@ -1,3 +1,5 @@
+name: $(Year:yy)$(DayOfYear)$(Rev:rr)
+
 trigger:
 - none
 
@@ -8,16 +10,13 @@ parameters:
     default: 0
   - name: MinorVersion
     displayName: MinorVersion of the package 
-    default: 0
-  - name: ReleaseVersion
-    displayName: MinorVersion of the package 
-    default: 7
+    default: 1
 
 pool:
   vmImage: windows-latest
 
 variables:
-  version: ${{parameters.MajorVersion}}.${{parameters.MinorVersion}}.${{parameters.ReleaseVersion}}
+  version: ${{parameters.MajorVersion}}.${{parameters.MinorVersion}}.$(Build.BuildNumber)
 
 steps:
 
