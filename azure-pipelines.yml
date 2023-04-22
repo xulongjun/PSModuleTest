@@ -4,10 +4,10 @@ trigger:
 parameters:
   - name: MajorVersion
     displayName: MajorVersion of the module
-    type: int
+    type: integer
   - name: MinorVersion
     displayName: MinorVersion of the package 
-    type: int
+    type: integer
 
 pool:
   vmImage: windows-latest
@@ -17,7 +17,7 @@ variables:
 
 steps:
 
-- task: PowerShell@2
+- task: PowerShell@2 
   displayName: Install Modules
   name: installmodules
   inputs:
