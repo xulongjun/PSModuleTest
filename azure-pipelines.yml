@@ -9,12 +9,15 @@ parameters:
   - name: MinorVersion
     displayName: MinorVersion of the package 
     default: 0
+  - name: ReleaseVersion
+    displayName: MinorVersion of the package 
+    default: 0
 
 pool:
   vmImage: windows-latest
 
 variables:
-  version: ${{parameters.MajorVersion}}.${{parameters.MinorVersion}}.$(Year:yy)$(DayOfYear)$(Rev:rr)
+  version: ${{parameters.MajorVersion}}.${{parameters.MinorVersion}}.${{parameters.ReleaseVersion}}
 
 steps:
 
