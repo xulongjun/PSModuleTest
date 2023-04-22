@@ -5,9 +5,10 @@ parameters:
   - name: MajorVersion
     displayName: MajorVersion of the module
     type: number
+    values: 0
   - name: MinorVersion
     displayName: MinorVersion of the package 
-    type: number
+    values: 0
 
 pool:
   vmImage: windows-latest
