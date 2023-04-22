@@ -5,7 +5,7 @@ pool:
   vmImage: windows-latest
 
 variables:
-  version: 0.0.4
+  version: 0.0.5
 
 steps:
 
@@ -42,19 +42,19 @@ steps:
     ArtifactName: module
     PathtoPublish: $(Build.SourcesDirectory)/Output
 
-# - task: NuGetCommand@2
-#   displayName: Publish to Nuget PsModuleTest
-#   name: publishnuget1
-#   inputs:
-#     command: push
-#     packagesToPush: $(Build.SourcesDirectory)/Output/Nuget/*.nupkg
-#     publishVstsFeed: LongjunTest/PsModuleTest
-
 - task: NuGetCommand@2
-  displayName: Publish to Nuget PsModuleTest2
-  name: publishnuget2
+  displayName: Publish to Nuget PsModuleTest
+  name: publishnuget1
   inputs:
     command: push
     packagesToPush: $(Build.SourcesDirectory)/Output/Nuget/*.nupkg
-    publishVstsFeed: 'testServiceCon'
+    publishVstsFeed: LongjunTest/PsModuleTest
+
+# - task: NuGetCommand@2
+#   displayName: Publish to Nuget PsModuleTest2
+#   name: publishnuget2
+#   inputs:
+#     command: push
+#     packagesToPush: $(Build.SourcesDirectory)/Output/Nuget/*.nupkg
+#     publishVstsFeed: 'testServiceCon'
   
