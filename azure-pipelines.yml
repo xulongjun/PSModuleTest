@@ -1,11 +1,19 @@
 trigger:
 - none
 
+parameters:
+  - name: MajorVersion
+    displayName: MajorVersion of the module
+    type: int
+  - name: MinorVersion
+    displayName: MinorVersion of the package 
+    type: int
+
 pool:
   vmImage: windows-latest
 
 variables:
-  version: 0.0.5
+  version: ${{parameters.MajorVersion}}.${{parameters.MinorVersion}}.$(Year:yy)$(DayOfYear)$(Rev:rr)
 
 steps:
 
